@@ -1,0 +1,17 @@
+{
+  "editor.formatOnSave": true,
+  "editor.rulers": [120],
+  "[elixir]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.wordBasedSuggestions": false,
+    "editor.formatOnType": true,
+    "editor.acceptSuggestionOnEnter": "on",
+    "editor.trimAutoWhitespace": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true
+  },
+  "elixirLinter.useStrict": true,
+  "elixirLS.suggestSpecs": false,
+  "elixirLS.dialyzerEnabled": true
+}
