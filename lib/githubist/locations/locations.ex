@@ -7,8 +7,10 @@ defmodule Githubist.Locations do
   alias Githubist.Repo
 
   alias Ecto.Changeset
+  alias Githubist.Developers
   alias Githubist.Developers.Developer
   alias Githubist.Locations.Location
+  alias Githubist.Repositories
   alias Githubist.Repositories.Repository
 
   @type order_direction :: :desc | :asc
@@ -78,7 +80,7 @@ defmodule Githubist.Locations do
   @doc """
   Get developers at the location with limit and order
   """
-  @spec get_developers(Location.t(), list_params()) :: list(Developer.t())
+  @spec get_developers(Location.t(), Developers.list_params()) :: list(Developer.t())
   def get_developers(%Location{} = location, params) do
     query =
       from(d in Developer,
@@ -94,7 +96,7 @@ defmodule Githubist.Locations do
   @doc """
   Get repositories at the location
   """
-  @spec get_repositories(Location.t(), list_params()) :: list(Repository.t())
+  @spec get_repositories(Location.t(), Repositories.list_params()) :: list(Repository.t())
   def get_repositories(%Location{} = location, params) do
     query =
       from(r in Repository,

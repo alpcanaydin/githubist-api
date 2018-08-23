@@ -12,6 +12,7 @@ defmodule Githubist.Languages do
   alias Githubist.Languages.Language
   alias Githubist.Locations
   alias Githubist.Locations.Location
+  alias Githubist.Repositories
   alias Githubist.Repositories.Repository
 
   @type order_direction :: :desc | :asc
@@ -83,7 +84,7 @@ defmodule Githubist.Languages do
   @doc """
   Get repositories in a language with limit and order
   """
-  @spec get_repositories(Language.t(), list_params()) :: list(Repository.t())
+  @spec get_repositories(Language.t(), Repositories.list_params()) :: list(Repository.t())
   def get_repositories(%Language{} = language, params) do
     query =
       from(r in Repository,

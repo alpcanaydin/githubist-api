@@ -8,6 +8,7 @@ defmodule Githubist.Developers do
 
   alias Ecto.Changeset
   alias Githubist.Developers.Developer
+  alias Githubist.Repositories
   alias Githubist.Repositories.Repository
 
   @type order_direction :: :desc | :asc
@@ -78,7 +79,7 @@ defmodule Githubist.Developers do
   @doc """
   Get repositories of a developer with limit and order
   """
-  @spec get_repositories(Developer.t(), list_params()) :: list(Developer.t())
+  @spec get_repositories(Developer.t(), Repositories.list_params()) :: list(Repository.t())
   def get_repositories(%Developer{} = developer, params) do
     query =
       from(r in Repository,
