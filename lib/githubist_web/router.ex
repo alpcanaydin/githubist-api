@@ -10,11 +10,9 @@ defmodule GithubistWeb.Router do
 
     forward("/graphql", Absinthe.Plug, schema: GithubistWeb.Schema)
 
-    if Mix.env() === :dev do
-      forward("/graphiql", Absinthe.Plug.GraphiQL,
-        schema: GithubistWeb.Schema,
-        interface: :playground
-      )
-    end
+    forward("/graphiql", Absinthe.Plug.GraphiQL,
+      schema: GithubistWeb.Schema,
+      interface: :playground
+    )
   end
 end
