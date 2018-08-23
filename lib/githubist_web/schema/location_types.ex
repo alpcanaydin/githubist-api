@@ -40,6 +40,9 @@ defmodule GithubistWeb.Schema.LocationTypes do
     @desc "Location slug to use in URLs"
     field(:slug, non_null(:string))
 
+    @desc "Github stats score of this location"
+    field(:score, non_null(:float))
+
     @desc "Location stats"
     field(:stats, non_null(:location_stats), resolve: &LocationResolver.get_stats/3)
 

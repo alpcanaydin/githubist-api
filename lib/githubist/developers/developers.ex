@@ -12,7 +12,8 @@ defmodule Githubist.Developers do
 
   @type order_direction :: :desc | :asc
 
-  @type order_field :: :score | :total_starred | :followers | :github_created_at
+  @type order_field ::
+          :name | :username | :score | :total_starred | :followers | :github_created_at
 
   @type list_params :: %{
           limit: integer(),

@@ -13,7 +13,7 @@ defmodule Githubist.Locations do
 
   @type order_direction :: :desc | :asc
 
-  @type order_field :: :score
+  @type order_field :: :name | :score
 
   @type list_params :: %{
           limit: integer(),

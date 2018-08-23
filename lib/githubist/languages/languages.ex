@@ -16,7 +16,7 @@ defmodule Githubist.Languages do
 
   @type order_direction :: :desc | :asc
 
-  @type order_field :: :score | :total_stars | :total_repositories
+  @type order_field :: :name | :score | :total_stars | :total_repositories
 
   @type usage_params :: %{limit: integer(), offset: integer()}
 

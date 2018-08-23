@@ -11,7 +11,7 @@ defmodule Githubist.Repositories do
 
   @type order_direction :: :desc | :asc
 
-  @type order_field :: :stars | :forks | :github_created_at
+  @type order_field :: :name | :stars | :forks | :github_created_at
 
   @type list_params :: %{
           limit: integer(),
