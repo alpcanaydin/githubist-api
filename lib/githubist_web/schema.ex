@@ -4,6 +4,7 @@ defmodule GithubistWeb.Schema do
   """
 
   use Absinthe.Schema
+  use ApolloTracing
 
   alias Absinthe.Middleware.Dataloader, as: DataloaderMiddleware
   alias Absinthe.Plugin
