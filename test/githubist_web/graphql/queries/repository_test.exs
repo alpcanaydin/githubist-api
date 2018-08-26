@@ -14,6 +14,7 @@ defmodule GithubistWeb.GraphQL.RepositoryTest do
         id
         name
         slug
+        description
         github_id
         github_url
         stars
@@ -60,6 +61,7 @@ defmodule GithubistWeb.GraphQL.RepositoryTest do
       RepositoriesHelper.create_repository(%{
         name: "repository",
         slug: "repository-1",
+        description: "Lorem ipsum",
         language_id: language.id,
         developer_id: developer.id
       })
@@ -79,6 +81,7 @@ defmodule GithubistWeb.GraphQL.RepositoryTest do
                  "id" => to_string(repository.id),
                  "name" => repository.name,
                  "slug" => repository.slug,
+                 "description" => repository.description,
                  "github_id" => repository.github_id,
                  "github_url" => repository.github_url,
                  "stars" => repository.stars,

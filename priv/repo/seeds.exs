@@ -91,6 +91,7 @@ Enum.each(developersAndRepos, fn item ->
     repository_attrs = %{
       name: repository_item["name"],
       slug: repository_item["slug"],
+      description: repository_item["description"],
       github_id: repository_item["github_id"],
       github_url: repository_item["github_url"],
       stars: repository_item["stars"],

@@ -7,6 +7,7 @@ defmodule Githubist.Repo.Migrations.CreateRepositories do
     create table(:repositories) do
       add(:name, :string)
       add(:slug, :citext)
+      add(:description, :text)
       add(:github_id, :integer)
       add(:github_url, :string)
       add(:stars, :integer)

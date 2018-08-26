@@ -27,6 +27,9 @@ defmodule GithubistWeb.Schema.RepositoryTypes do
     @desc "Repository slug"
     field(:slug, non_null(:string))
 
+    @desc "Description for the repo"
+    field(:description, :string)
+
     @desc "Github ID of repository"
     field(:github_id, non_null(:integer))
 

@@ -9,6 +9,7 @@ defmodule Githubist.TestSupport.RepositoriesHelper do
   @repository_attrs %{
     name: "repo",
     slug: "username/repo",
+    description: "Lorem ipsum dolar sit amet.",
     github_id: 123,
     github_url: "https://github.com/username/repo",
     stars: 100,

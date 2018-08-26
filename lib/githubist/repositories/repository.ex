@@ -13,6 +13,7 @@ defmodule Githubist.Repositories.Repository do
   schema "repositories" do
     field(:name, :string)
     field(:slug, :string)
+    field(:description, :string)
     field(:github_id, :integer)
     field(:github_url, :string)
     field(:stars, :integer)
@@ -32,6 +33,7 @@ defmodule Githubist.Repositories.Repository do
     |> cast(attrs, [
       :name,
       :slug,
+      :description,
       :github_id,
       :github_url,
       :stars,

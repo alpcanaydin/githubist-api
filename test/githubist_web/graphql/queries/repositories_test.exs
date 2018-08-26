@@ -14,6 +14,7 @@ defmodule GithubistWeb.GraphQL.RepositoriesTest do
         id
         name
         slug
+        description
         github_id
         github_url
         stars
@@ -60,6 +61,7 @@ defmodule GithubistWeb.GraphQL.RepositoriesTest do
       RepositoriesHelper.create_repository(%{
         name: "Repository 1",
         slug: "repository-1",
+        description: "Lorem ipsum",
         developer_id: developer.id,
         language_id: language.id,
         stars: 1
@@ -69,6 +71,7 @@ defmodule GithubistWeb.GraphQL.RepositoriesTest do
       RepositoriesHelper.create_repository(%{
         name: "Repository 2",
         slug: "repository-2",
+        description: "Lorem ipsum",
         developer_id: developer.id,
         language_id: language.id,
         stars: 2
@@ -78,6 +81,7 @@ defmodule GithubistWeb.GraphQL.RepositoriesTest do
       RepositoriesHelper.create_repository(%{
         name: "Repository 3",
         slug: "repository-3",
+        description: "Lorem ipsum",
         developer_id: developer.id,
         language_id: language.id,
         stars: 3
@@ -99,6 +103,7 @@ defmodule GithubistWeb.GraphQL.RepositoriesTest do
                    "id" => to_string(repository3.id),
                    "name" => repository3.name,
                    "slug" => repository3.slug,
+                   "description" => repository3.description,
                    "github_id" => repository3.github_id,
                    "github_url" => repository3.github_url,
                    "stars" => repository3.stars,
@@ -113,6 +118,7 @@ defmodule GithubistWeb.GraphQL.RepositoriesTest do
                    "id" => to_string(repository2.id),
                    "name" => repository2.name,
                    "slug" => repository2.slug,
+                   "description" => repository2.description,
                    "github_id" => repository2.github_id,
                    "github_url" => repository2.github_url,
                    "stars" => repository2.stars,

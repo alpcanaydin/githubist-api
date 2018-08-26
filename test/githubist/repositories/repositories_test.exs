@@ -10,6 +10,7 @@ defmodule Githubist.RepositoriesTest do
   @repository_attrs %{
     name: "repo",
     slug: "username/repo",
+    description: "Lorem ipsum dolar sit amet.",
     github_id: 123,
     github_url: "https://github.com/username/repo",
     stars: 100,
@@ -99,6 +100,7 @@ defmodule Githubist.RepositoriesTest do
 
       assert repository.name === @repository_attrs.name
       assert repository.slug === @repository_attrs.slug
+      assert repository.description === @repository_attrs.description
       assert repository.github_id === @repository_attrs.github_id
       assert repository.github_url === @repository_attrs.github_url
       assert repository.stars === @repository_attrs.stars
