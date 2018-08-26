@@ -9,10 +9,7 @@ defmodule GithubistWeb.Router do
   scope "/" do
     pipe_through(:graphql)
 
-    forward("/graphql", Absinthe.Plug,
-      schema: GithubistWeb.Schema,
-      pipeline: {ApolloTracing.Pipeline, :plug}
-    )
+    forward("/graphql", Absinthe.Plug, schema: GithubistWeb.Schema)
 
     forward("/graphiql", Absinthe.Plug.GraphiQL,
       schema: GithubistWeb.Schema,

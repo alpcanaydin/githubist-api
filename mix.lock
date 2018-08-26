@@ -1,7 +1,6 @@
 %{
   "absinthe": {:hex, :absinthe, "1.4.13", "81eb2ff41f1b62cd6e992955f62c22c042d1079b7936c27f5f7c2c806b8fc436", [:mix], [{:dataloader, "~> 1.0.0", [hex: :dataloader, repo: "hexpm", optional: true]}, {:decimal, "~> 1.0", [hex: :decimal, repo: "hexpm", optional: true]}], "hexpm"},
   "absinthe_plug": {:hex, :absinthe_plug, "1.4.5", "f63d52a76c870cd5f11d4bed8f61351ab5c5f572c5eb0479a0137f9f730ba33d", [:mix], [{:absinthe, "~> 1.4.11", [hex: :absinthe, repo: "hexpm", optional: false]}, {:plug, "~> 1.3.2 or ~> 1.4", [hex: :plug, repo: "hexpm", optional: false]}], "hexpm"},
-  "apollo_tracing": {:hex, :apollo_tracing, "0.4.1", "210d20693f88bd133a55b04dc1d990ce68ce620a804773731faf180b8b85aa4e", [:mix], [{:absinthe, "~> 1.4", [hex: :absinthe, repo: "hexpm", optional: false]}, {:absinthe_plug, "~> 1.4", [hex: :absinthe_plug, repo: "hexpm", optional: true]}], "hexpm"},
   "bunt": {:hex, :bunt, "0.2.0", "951c6e801e8b1d2cbe58ebbd3e616a869061ddadcc4863d0a2182541acae9a38", [:mix], [], "hexpm"},
   "certifi": {:hex, :certifi, "2.3.1", "d0f424232390bf47d82da8478022301c561cf6445b5b5fb6a84d49a9e76d2639", [:rebar3], [{:parse_trans, "3.2.0", [hex: :parse_trans, repo: "hexpm", optional: false]}], "hexpm"},
   "combine": {:hex, :combine, "0.10.0", "eff8224eeb56498a2af13011d142c5e7997a80c8f5b97c499f84c841032e429f", [:mix], [], "hexpm"},
@@ -31,7 +30,6 @@
   "poolboy": {:hex, :poolboy, "1.5.1", "6b46163901cfd0a1b43d692657ed9d7e599853b3b21b95ae5ae0a777cf9b6ca8", [:rebar], [], "hexpm"},
   "postgrex": {:hex, :postgrex, "0.13.5", "3d931aba29363e1443da167a4b12f06dcd171103c424de15e5f3fc2ba3e6d9c5", [:mix], [{:connection, "~> 1.0", [hex: :connection, repo: "hexpm", optional: false]}, {:db_connection, "~> 1.1", [hex: :db_connection, repo: "hexpm", optional: false]}, {:decimal, "~> 1.0", [hex: :decimal, repo: "hexpm", optional: false]}], "hexpm"},
   "ranch": {:hex, :ranch, "1.3.2", "e4965a144dc9fbe70e5c077c65e73c57165416a901bd02ea899cfd95aa890986", [:rebar3], [], "hexpm"},
-  "slugger": {:hex, :slugger, "0.3.0", "efc667ab99eee19a48913ccf3d038b1fb9f165fa4fbf093be898b8099e61b6ed", [:mix], [], "hexpm"},
   "slugify": {:hex, :slugify, "1.1.0", "945165e32c7ad22226c63101ac57a64d105fd4681d503c3302ae2c734a0e26ee", [:mix], [], "hexpm"},
   "ssl_verify_fun": {:hex, :ssl_verify_fun, "1.1.1", "28a4d65b7f59893bc2c7de786dec1e1555bd742d336043fe644ae956c3497fbe", [:make, :rebar], [], "hexpm"},
   "timex": {:hex, :timex, "3.3.0", "e0695aa0ddb37d460d93a2db34d332c2c95a40c27edf22fbfea22eb8910a9c8d", [:mix], [{:combine, "~> 0.10", [hex: :combine, repo: "hexpm", optional: false]}, {:gettext, "~> 0.10", [hex: :gettext, repo: "hexpm", optional: false]}, {:tzdata, "~> 0.1.8 or ~> 0.5", [hex: :tzdata, repo: "hexpm", optional: false]}], "hexpm"},

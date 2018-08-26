@@ -44,7 +44,6 @@ defmodule Githubist.Mixfile do
       {:slugify, "~> 1.1"},
       {:absinthe, "~> 1.4.0"},
       {:absinthe_plug, "~> 1.4"},
-      {:apollo_tracing, "~> 0.4.0"},
       {:dataloader, "~> 1.0.0"},
       {:timex, "~> 3.0"},
       {:cors_plug, "~> 1.5"},
