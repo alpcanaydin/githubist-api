@@ -2,6 +2,7 @@ defmodule GithubistWeb.Router do
   use GithubistWeb, :router
 
   pipeline :graphql do
+    plug(CORSPlug, origin: ["http://localhost:3000", "https://github.ist"])
     plug(:accepts, ["json"])
   end
 

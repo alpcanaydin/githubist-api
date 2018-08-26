@@ -47,6 +47,7 @@ defmodule Githubist.Mixfile do
       {:apollo_tracing, "~> 0.4.0"},
       {:dataloader, "~> 1.0.0"},
       {:timex, "~> 3.0"},
+      {:cors_plug, "~> 1.5"},
       {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false}
     ]
