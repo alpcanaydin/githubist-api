@@ -62,7 +62,8 @@ defmodule Githubist.Locations do
   """
   @spec all(list_params()) :: list(Location.t())
   def all(%{limit: limit, order_by: order_by, offset: offset}) do
-    query = from(Location, order_by: ^order_by, limit: ^limit, offset: ^offset)
+    query =
+      from(Location, order_by: ^order_by, order_by: {:asc, :id}, limit: ^limit, offset: ^offset)
 
     Repo.all(query)
   end
@@ -86,6 +87,7 @@ defmodule Githubist.Locations do
       from(d in Developer,
         where: d.location_id == ^location.id,
         order_by: ^params.order_by,
+        order_by: {:asc, :id},
         limit: ^params.limit,
         offset: ^params.offset
       )
@@ -105,6 +107,7 @@ defmodule Githubist.Locations do
         on: d.id == r.developer_id,
         where: d.location_id == ^location.id,
         order_by: ^params.order_by,
+        order_by: {:asc, :id},
         limit: ^params.limit,
         offset: ^params.offset
       )

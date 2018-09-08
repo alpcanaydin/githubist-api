@@ -61,7 +61,8 @@ defmodule Githubist.Developers do
   """
   @spec all(list_params()) :: list(Developer.t())
   def all(%{limit: limit, offset: offset, order_by: order_by}) do
-    query = from(Developer, order_by: ^order_by, limit: ^limit, offset: ^offset)
+    query =
+      from(Developer, order_by: ^order_by, order_by: {:asc, :id}, limit: ^limit, offset: ^offset)
 
     Repo.all(query)
   end
@@ -85,6 +86,7 @@ defmodule Githubist.Developers do
       from(r in Repository,
         where: r.developer_id == ^developer.id,
         order_by: ^params.order_by,
+        order_by: {:asc, :id},
         limit: ^params.limit,
         offset: ^params.offset
       )

@@ -66,7 +66,8 @@ defmodule Githubist.Languages do
   """
   @spec all(list_params()) :: list(Developer.t())
   def all(%{limit: limit, offset: offset, order_by: order_by}) do
-    query = from(Language, order_by: ^order_by, limit: ^limit, offset: ^offset)
+    query =
+      from(Language, order_by: ^order_by, order_by: {:asc, :id}, limit: ^limit, offset: ^offset)
 
     Repo.all(query)
   end
@@ -90,6 +91,7 @@ defmodule Githubist.Languages do
       from(r in Repository,
         where: r.language_id == ^language.id,
         order_by: ^params.order_by,
+        order_by: {:asc, :id},
         limit: ^params.limit,
         offset: ^params.offset
       )

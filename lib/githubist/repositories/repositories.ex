@@ -58,7 +58,8 @@ defmodule Githubist.Repositories do
   """
   @spec all(list_params()) :: list(Repository.t())
   def all(%{limit: limit, order_by: order_by, offset: offset}) do
-    query = from(Repository, order_by: ^order_by, limit: ^limit, offset: ^offset)
+    query =
+      from(Repository, order_by: ^order_by, order_by: {:asc, :id}, limit: ^limit, offset: ^offset)
 
     Repo.all(query)
   end
