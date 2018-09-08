@@ -23,13 +23,15 @@ locationsAndScores =
   |> Poison.decode!()
 
 Enum.each(locationsAndScores, fn item ->
-  {name, score} = item
+  {name, data} = item
 
   {:ok, _location} =
     Locations.create_location(%{
       name: ImportHelpers.capitalize(name),
       slug: ImportHelpers.create_location_slug(name),
-      score: score
+      score: data["score"],
+      total_repositories: data["repos"],
+      total_developers: data["developers"]
     })
 end)
 

@@ -8,6 +8,8 @@ defmodule Githubist.Repo.Migrations.CreateLocations do
       add(:name, :string)
       add(:slug, :citext)
       add(:score, :float)
+      add(:total_repositories, :integer)
+      add(:total_developers, :integer)
 
       timestamps()
     end

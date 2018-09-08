@@ -9,7 +9,9 @@ defmodule Githubist.TestSupport.LocationsHelper do
   @location_attrs %{
     name: "İzmir",
     slug: "izmir",
-    score: 100.12
+    score: 100.12,
+    total_repositories: 100,
+    total_developers: 100
   }
 
   @spec create_location(map()) :: Location.t()

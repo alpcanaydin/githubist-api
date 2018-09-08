@@ -25,9 +25,7 @@ defmodule GithubistWeb.Resolvers.LocationResolver do
 
   def get_stats(%Location{} = location, _params, _resolution) do
     stats = %{
-      rank: Locations.get_rank(location),
-      developers_count: Locations.get_developers_count(location),
-      repositories_count: Locations.get_repositories_count(location)
+      rank: Locations.get_rank(location)
     }
 
     {:ok, stats}

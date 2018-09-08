@@ -25,6 +25,8 @@ defmodule GithubistWeb.Schema.Enums do
   enum :location_order_field do
     value(:name)
     value(:score)
+    value(:total_repositories)
+    value(:total_developers)
   end
 
   enum :repository_order_field do

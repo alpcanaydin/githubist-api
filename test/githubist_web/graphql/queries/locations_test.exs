@@ -15,10 +15,10 @@ defmodule GithubistWeb.GraphQL.LocationsTest do
         name
         slug
         score
+        totalRepositories
+        totalDevelopers
         stats {
           rank
-          developersCount
-          repositoriesCount
         }
       }
     }
@@ -65,21 +65,27 @@ defmodule GithubistWeb.GraphQL.LocationsTest do
       LocationsHelper.create_location(%{
         name: "Location 1",
         slug: "location-1",
-        score: 1.0
+        score: 1.0,
+        totalRepositories: 1,
+        totalDevelopers: 1
       })
 
     location2 =
       LocationsHelper.create_location(%{
         name: "Location 2",
         slug: "location-2",
-        score: 2.0
+        score: 2.0,
+        totalRepositories: 2,
+        totalDevelopers: 1
       })
 
     location3 =
       LocationsHelper.create_location(%{
         name: "Location 3",
         slug: "location-3",
-        score: 3.0
+        score: 3.0,
+        totalRepositories: 3,
+        totalDevelopers: 1
       })
 
     language = LanguagesHelper.create_language(%{slug: "language-slug"})
@@ -125,10 +131,10 @@ defmodule GithubistWeb.GraphQL.LocationsTest do
                    "name" => location3.name,
                    "slug" => location3.slug,
                    "score" => location3.score,
+                   "totalRepositories" => location3.total_repositories,
+                   "totalDevelopers" => location3.total_developers,
                    "stats" => %{
-                     "rank" => 1,
-                     "developersCount" => 1,
-                     "repositoriesCount" => 1
+                     "rank" => 1
                    }
                  },
                  %{
@@ -136,10 +142,10 @@ defmodule GithubistWeb.GraphQL.LocationsTest do
                    "name" => location2.name,
                    "slug" => location2.slug,
                    "score" => location2.score,
+                   "totalRepositories" => location2.total_repositories,
+                   "totalDevelopers" => location2.total_developers,
                    "stats" => %{
-                     "rank" => 2,
-                     "developersCount" => 1,
-                     "repositoriesCount" => 1
+                     "rank" => 2
                    }
                  }
                ]

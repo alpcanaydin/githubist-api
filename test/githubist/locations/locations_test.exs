@@ -11,7 +11,9 @@ defmodule Githubist.LocationsTest do
   @location_attrs %{
     name: "Izmir",
     slug: "izmir",
-    score: 100.0
+    score: 100.0,
+    total_repositories: 100,
+    total_developers: 100
   }
 
   def location_fixture(attrs \\ %{}) do
@@ -91,6 +93,8 @@ defmodule Githubist.LocationsTest do
       assert location.name === @location_attrs.name
       assert location.slug === @location_attrs.slug
       assert location.score === @location_attrs.score
+      assert location.total_repositories === @location_attrs.total_repositories
+      assert location.total_developers === @location_attrs.total_developers
     end
 
     test "returns error if validation fails" do

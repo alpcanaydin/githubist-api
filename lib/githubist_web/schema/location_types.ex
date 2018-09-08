@@ -12,12 +12,6 @@ defmodule GithubistWeb.Schema.LocationTypes do
   object :location_stats do
     @desc "Position of this location in Github Turkey stats"
     field(:rank, non_null(:integer))
-
-    @desc "Total developers count in this location"
-    field(:developers_count, non_null(:integer))
-
-    @desc "Total repositories count in this location"
-    field(:repositories_count, non_null(:integer))
   end
 
   @desc "Location usage"
@@ -42,6 +36,12 @@ defmodule GithubistWeb.Schema.LocationTypes do
 
     @desc "Github stats score of this location"
     field(:score, non_null(:float))
+
+    @desc "Total developers count in this location"
+    field(:total_developers, non_null(:integer))
+
+    @desc "Total repositories count in this location"
+    field(:total_repositories, non_null(:integer))
 
     @desc "Location stats"
     field(:stats, non_null(:location_stats), resolve: &LocationResolver.get_stats/3)

@@ -15,10 +15,10 @@ defmodule GithubistWeb.GraphQL.LocationTest do
         name
         slug
         score
+        totalRepositories
+        totalDevelopers
         stats {
           rank
-          developersCount
-          repositoriesCount
         }
       }
     }
@@ -66,7 +66,9 @@ defmodule GithubistWeb.GraphQL.LocationTest do
       LocationsHelper.create_location(%{
         name: "Location 1",
         slug: "location-1",
-        score: 1.0
+        score: 1.0,
+        totalRepositories: 1,
+        totalDevelopers: 1
       })
 
     language = LanguagesHelper.create_language(%{name: "language"})
@@ -96,10 +98,10 @@ defmodule GithubistWeb.GraphQL.LocationTest do
                  "name" => location.name,
                  "slug" => location.slug,
                  "score" => location.score,
+                 "totalRepositories" => location.total_repositories,
+                 "totalDevelopers" => location.total_developers,
                  "stats" => %{
-                   "rank" => 1,
-                   "developersCount" => 1,
-                   "repositoriesCount" => 1
+                   "rank" => 1
                  }
                }
              }
