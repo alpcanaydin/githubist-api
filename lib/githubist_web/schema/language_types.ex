@@ -13,12 +13,6 @@ defmodule GithubistWeb.Schema.LanguageTypes do
 
     @desc "Position of this language in Github Turkey stats according to repositories count"
     field(:repositories_count_rank, non_null(:integer))
-
-    @desc "Total developers count of this language"
-    field(:developers_count, non_null(:integer))
-
-    @desc "Total repositories count of this language"
-    field(:repositories_count, non_null(:integer))
   end
 
   @desc "Language usage"
@@ -49,6 +43,9 @@ defmodule GithubistWeb.Schema.LanguageTypes do
 
     @desc "Total repos of the language"
     field(:total_repositories, non_null(:integer))
+
+    @desc "Total developers for the language"
+    field(:total_developers, non_null(:integer))
 
     @desc "Language stats"
     field(:stats, non_null(:language_stats), resolve: &LanguageResolver.get_stats/3)

@@ -15,6 +15,7 @@ defmodule Githubist.Languages.Language do
     field(:score, :float)
     field(:total_stars, :integer)
     field(:total_repositories, :integer)
+    field(:total_developers, :integer)
 
     has_many(:repositories, Repository)
 
@@ -25,8 +26,15 @@ defmodule Githubist.Languages.Language do
   @spec changeset(__MODULE__.t(), map()) :: Changeset.t()
   def changeset(language, attrs) do
     language
-    |> cast(attrs, [:name, :slug, :score, :total_stars, :total_repositories])
-    |> validate_required([:name, :slug, :score, :total_stars, :total_repositories])
+    |> cast(attrs, [:name, :slug, :score, :total_stars, :total_repositories, :total_developers])
+    |> validate_required([
+      :name,
+      :slug,
+      :score,
+      :total_stars,
+      :total_repositories,
+      :total_developers
+    ])
     |> unique_constraint(:slug)
   end
 end

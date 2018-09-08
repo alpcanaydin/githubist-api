@@ -10,6 +10,7 @@ defmodule Githubist.Repo.Migrations.CreateLanguages do
       add(:score, :float)
       add(:total_stars, :integer)
       add(:total_repositories, :integer)
+      add(:total_developers, :integer)
 
       timestamps()
     end

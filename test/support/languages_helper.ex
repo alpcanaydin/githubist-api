@@ -11,7 +11,8 @@ defmodule Githubist.TestSupport.LanguagesHelper do
     slug: "elixir",
     score: 100.0,
     total_stars: 100,
-    total_repositories: 100
+    total_repositories: 100,
+    total_developers: 100
   }
 
   @spec create_language(map()) :: Language.t()

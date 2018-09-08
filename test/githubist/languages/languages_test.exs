@@ -13,7 +13,8 @@ defmodule Githubist.LanguagesTest do
     slug: "elixir",
     score: 100.0,
     total_stars: 100,
-    total_repositories: 100
+    total_repositories: 100,
+    total_developers: 100
   }
 
   def language_fixture(attrs \\ %{}) do
@@ -95,6 +96,7 @@ defmodule Githubist.LanguagesTest do
       assert language.score === @language_attrs.score
       assert language.total_stars === @language_attrs.total_stars
       assert language.total_repositories === @language_attrs.total_repositories
+      assert language.total_developers === @language_attrs.total_developers
     end
 
     test "returns error if validation fails" do

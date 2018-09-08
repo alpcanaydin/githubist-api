@@ -17,11 +17,10 @@ defmodule GithubistWeb.GraphQL.LanguagesTest do
         score
         totalStars
         totalRepositories
+        totalDevelopers
         stats {
           rank
           repositoriesCountRank
-          developersCount
-          repositoriesCount
         }
       }
     }
@@ -74,7 +73,8 @@ defmodule GithubistWeb.GraphQL.LanguagesTest do
         name: "Language 1",
         slug: "language-1",
         score: 1.0,
-        total_repositories: 0
+        total_repositories: 0,
+        total_developers: 0
       })
 
     language2 =
@@ -82,7 +82,8 @@ defmodule GithubistWeb.GraphQL.LanguagesTest do
         name: "Language 2",
         slug: "language-2",
         score: 2.0,
-        total_repositories: 1
+        total_repositories: 1,
+        total_developers: 1
       })
 
     language3 =
@@ -90,7 +91,8 @@ defmodule GithubistWeb.GraphQL.LanguagesTest do
         name: "Language 3",
         slug: "language-3",
         score: 3.0,
-        total_repositories: 2
+        total_repositories: 2,
+        total_developers: 1
       })
 
     location = LocationsHelper.create_location(%{name: "Location 1"})
@@ -131,11 +133,10 @@ defmodule GithubistWeb.GraphQL.LanguagesTest do
                    "score" => language3.score,
                    "totalStars" => language3.total_stars,
                    "totalRepositories" => language3.total_repositories,
+                   "totalDevelopers" => language3.total_developers,
                    "stats" => %{
                      "rank" => 1,
-                     "repositoriesCountRank" => 1,
-                     "developersCount" => 1,
-                     "repositoriesCount" => 2
+                     "repositoriesCountRank" => 1
                    }
                  },
                  %{
@@ -145,11 +146,10 @@ defmodule GithubistWeb.GraphQL.LanguagesTest do
                    "score" => language2.score,
                    "totalStars" => language2.total_stars,
                    "totalRepositories" => language2.total_repositories,
+                   "totalDevelopers" => language2.total_developers,
                    "stats" => %{
                      "rank" => 2,
-                     "repositoriesCountRank" => 2,
-                     "developersCount" => 0,
-                     "repositoriesCount" => 0
+                     "repositoriesCountRank" => 2
                    }
                  }
                ]

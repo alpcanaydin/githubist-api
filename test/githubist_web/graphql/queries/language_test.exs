@@ -17,11 +17,10 @@ defmodule GithubistWeb.GraphQL.LanguageTest do
         score
         totalStars
         totalRepositories
+        totalDevelopers
         stats {
           rank
           repositoriesCountRank
-          developersCount
-          repositoriesCount
         }
       }
     }
@@ -109,11 +108,10 @@ defmodule GithubistWeb.GraphQL.LanguageTest do
                  "score" => language.score,
                  "totalStars" => language.total_stars,
                  "totalRepositories" => language.total_repositories,
+                 "totalDevelopers" => language.total_developers,
                  "stats" => %{
                    "rank" => 1,
-                   "repositoriesCountRank" => 1,
-                   "developersCount" => 1,
-                   "repositoriesCount" => 1
+                   "repositoriesCountRank" => 1
                  }
                }
              }

@@ -48,7 +48,8 @@ Enum.each(languagesAndScores, fn item ->
       slug: ImportHelpers.create_language_slug(name),
       score: data["score"],
       total_stars: data["stars"],
-      total_repositories: data["repos"]
+      total_repositories: data["repos"],
+      total_developers: data["developers"]
     })
 end)
 
