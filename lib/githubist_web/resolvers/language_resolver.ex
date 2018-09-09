@@ -28,7 +28,8 @@ defmodule GithubistWeb.Resolvers.LanguageResolver do
   def get_stats(%Language{} = language, _params, _resolution) do
     stats = %{
       rank: Languages.get_rank(language),
-      repositories_count_rank: Languages.get_repositories_count_rank(language)
+      repositories_count_rank: Languages.get_repositories_count_rank(language),
+      developers_count_rank: Languages.get_developers_count_rank(language)
     }
 
     {:ok, stats}

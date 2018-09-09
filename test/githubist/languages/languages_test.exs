@@ -286,6 +286,35 @@ defmodule Githubist.LanguagesTest do
     end
   end
 
+  describe "get_developers_count_rank/1" do
+    test "returns rank of the given language according to repository counts" do
+      language1 = LanguagesHelper.create_language(%{slug: "language1"})
+      language2 = LanguagesHelper.create_language(%{slug: "language2"})
+
+      location = LocationsHelper.create_location()
+
+      for i <- 1..3 do
+        DevelopersHelper.create_developer(%{
+          location_id: location.id,
+          language_id: language1.id,
+          username: "username#{i}",
+          github_id: i
+        })
+      end
+
+      for i <- 4..7 do
+        DevelopersHelper.create_developer(%{
+          location_id: location.id,
+          language_id: language2.id,
+          username: "username#{i}",
+          github_id: i
+        })
+      end
+
+      assert Languages.get_developers_count_rank(language2) === 1
+    end
+  end
+
   describe "get_developers_count/1" do
     setup do
       language = LanguagesHelper.create_language(%{slug: "language1"})

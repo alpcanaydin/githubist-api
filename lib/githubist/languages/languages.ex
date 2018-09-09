@@ -130,6 +130,21 @@ defmodule Githubist.Languages do
   end
 
   @doc """
+  Get the postion of language according to developers count
+  """
+  @spec get_developers_count_rank(Language.t()) :: integer()
+  def get_developers_count_rank(%Language{} = language) do
+    rank_query =
+      from(l in Language,
+        select: %{id: l.id, rank: fragment("RANK() OVER(ORDER BY ? DESC)", l.total_developers)}
+      )
+
+    query = from(r in subquery(rank_query), select: r.rank, where: r.id == ^language.id)
+
+    Repo.one(query)
+  end
+
+  @doc """
   Get repositories count which uses the given language
   """
   @spec get_repositories_count(Language.t()) :: integer()

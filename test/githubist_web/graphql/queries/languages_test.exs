@@ -21,6 +21,7 @@ defmodule GithubistWeb.GraphQL.LanguagesTest do
         stats {
           rank
           repositoriesCountRank
+          developersCountRank
         }
       }
     }
@@ -136,7 +137,8 @@ defmodule GithubistWeb.GraphQL.LanguagesTest do
                    "totalDevelopers" => language3.total_developers,
                    "stats" => %{
                      "rank" => 1,
-                     "repositoriesCountRank" => 1
+                     "repositoriesCountRank" => 1,
+                     "developersCountRank" => 1
                    }
                  },
                  %{
@@ -149,7 +151,8 @@ defmodule GithubistWeb.GraphQL.LanguagesTest do
                    "totalDevelopers" => language2.total_developers,
                    "stats" => %{
                      "rank" => 2,
-                     "repositoriesCountRank" => 2
+                     "repositoriesCountRank" => 2,
+                     "developersCountRank" => 1
                    }
                  }
                ]

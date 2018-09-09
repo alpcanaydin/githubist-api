@@ -13,6 +13,9 @@ defmodule GithubistWeb.Schema.LanguageTypes do
 
     @desc "Position of this language in Github Turkey stats according to repositories count"
     field(:repositories_count_rank, non_null(:integer))
+
+    @desc "Position of this language in Github Turkey stats according to developers count"
+    field(:developers_count_rank, non_null(:integer))
   end
 
   @desc "Language usage"
