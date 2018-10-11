@@ -57,7 +57,7 @@ defmodule GithubistWeb.Resolvers.RepositoryResolver do
 
   def get(_parent, %{slug: slug}, _resolution) do
     case Repositories.get_repository_by_slug(slug) do
-      nil -> {:error, "Repository with slug #{slug} could not be found."}
+      nil -> {:error, message: "Repository with slug #{slug} could not be found.", code: 404}
       repository -> {:ok, repository}
     end
   end

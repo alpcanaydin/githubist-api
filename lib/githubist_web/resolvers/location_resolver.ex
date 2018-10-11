@@ -18,7 +18,7 @@ defmodule GithubistWeb.Resolvers.LocationResolver do
 
   def get(_parent, %{slug: slug}, _resolution) do
     case Locations.get_location_by_slug(slug) do
-      nil -> {:error, "Location with slug #{slug} could not be found."}
+      nil -> {:error, message: "Location with slug #{slug} could not be found.", code: 404}
       location -> {:ok, location}
     end
   end

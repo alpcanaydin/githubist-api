@@ -20,7 +20,7 @@ defmodule GithubistWeb.Resolvers.LanguageResolver do
 
   def get(_parent, %{slug: slug}, _resolution) do
     case Languages.get_language_by_slug(slug) do
-      nil -> {:error, "Language with slug #{slug} could not be found."}
+      nil -> {:error, message: "Language with slug #{slug} could not be found.", code: 404}
       language -> {:ok, language}
     end
   end

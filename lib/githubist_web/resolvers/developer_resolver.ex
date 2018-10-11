@@ -31,8 +31,11 @@ defmodule GithubistWeb.Resolvers.DeveloperResolver do
 
   def get(_parent, %{username: username}, _resolution) do
     case Developers.get_developer_by_username(username) do
-      nil -> {:error, "Developer with username #{username} could not be found."}
-      developer -> {:ok, developer}
+      nil ->
+        {:error, message: "Developer with username #{username} could not be found.", code: 404}
+
+      developer ->
+        {:ok, developer}
     end
   end
 
