@@ -182,6 +182,7 @@ defmodule Githubist.Languages do
         where: d.location_id == ^location.id,
         group_by: r.language_id,
         order_by: [desc: count(r.id)],
+        order_by: {:asc, r.language_id},
         limit: ^limit,
         offset: ^offset
       )
@@ -208,6 +209,7 @@ defmodule Githubist.Languages do
         where: r.developer_id == ^developer.id,
         group_by: r.language_id,
         order_by: [desc: count(r.id)],
+        order_by: {:asc, r.language_id},
         limit: ^limit,
         offset: ^offset
       )
@@ -236,6 +238,7 @@ defmodule Githubist.Languages do
         where: r.language_id == ^language.id,
         group_by: d.location_id,
         order_by: [desc: count(r.id)],
+        order_by: {:asc, d.location_id},
         limit: ^limit,
         offset: ^offset
       )
@@ -262,6 +265,7 @@ defmodule Githubist.Languages do
         where: r.language_id == ^language.id,
         group_by: r.developer_id,
         order_by: [desc: count(r.id)],
+        order_by: {:asc, r.developer_id},
         limit: ^limit,
         offset: ^offset
       )
