@@ -19,6 +19,8 @@ defmodule Githubist.Repositories do
           order_by: {order_direction(), order_field()}
         }
 
+  @type search_result :: %{name: String.t(), slug: String.t(), type: :repository}
+
   @doc """
   Gets a single repository.
   """
@@ -72,6 +74,33 @@ defmodule Githubist.Repositories do
     query = from(r in Repository, select: count(r.id))
 
     Repo.one(query)
+  end
+
+  @doc """
+  Search repositories for given term
+  """
+  @spec search(String.t(), integer()) :: list(search_result)
+  def search(term, limit) do
+    search_term = "%#{term}%"
+
+    query =
+      from(r in Repository,
+        where: ilike(r.name, ^search_term),
+        order_by: {:desc, r.stars},
+        limit: ^limit
+      )
+
+    mapper = fn repository ->
+      %{
+        name: repository.name,
+        slug: repository.slug,
+        type: :repository
+      }
+    end
+
+    query
+    |> Repo.all()
+    |> Enum.map(mapper)
   end
 
   @doc """

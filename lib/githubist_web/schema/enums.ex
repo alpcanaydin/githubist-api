@@ -40,4 +40,11 @@ defmodule GithubistWeb.Schema.Enums do
     value(:asc)
     value(:desc)
   end
+
+  enum :search_result_type do
+    value(:developer)
+    value(:location)
+    value(:language)
+    value(:repository)
+  end
 end

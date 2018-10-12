@@ -23,6 +23,8 @@ defmodule Githubist.Locations do
           order_by: {order_direction(), order_field()}
         }
 
+  @type search_result :: %{name: String.t(), slug: String.t(), type: :location}
+
   @doc """
   Gets a single location.
   """
@@ -154,5 +156,28 @@ defmodule Githubist.Locations do
       )
 
     Repo.one(query)
+  end
+
+  @doc """
+  Search locations for given term
+  """
+  @spec search(String.t(), integer()) :: list(search_result)
+  def search(term, limit) do
+    search_term = "%#{term}%"
+
+    query =
+      from(l in Location, where: ilike(l.name, ^search_term), order_by: l.score, limit: ^limit)
+
+    mapper = fn location ->
+      %{
+        name: location.name,
+        slug: location.slug,
+        type: :location
+      }
+    end
+
+    query
+    |> Repo.all()
+    |> Enum.map(mapper)
   end
 end

@@ -27,6 +27,8 @@ defmodule Githubist.Languages do
           order_by: {order_direction(), order_field()}
         }
 
+  @type search_result :: %{name: String.t(), slug: String.t(), type: :language}
+
   @doc """
   Gets a single language.
   """
@@ -278,5 +280,32 @@ defmodule Githubist.Languages do
         repositories_count: item.repositories_count
       }
     end)
+  end
+
+  @doc """
+  Search languages for given term
+  """
+  @spec search(String.t(), integer()) :: list(search_result)
+  def search(term, limit) do
+    search_term = "%#{term}%"
+
+    query =
+      from(l in Language,
+        where: ilike(l.name, ^search_term),
+        order_by: {:desc, l.score},
+        limit: ^limit
+      )
+
+    mapper = fn language ->
+      %{
+        name: language.name,
+        slug: language.slug,
+        type: :language
+      }
+    end
+
+    query
+    |> Repo.all()
+    |> Enum.map(mapper)
   end
 end

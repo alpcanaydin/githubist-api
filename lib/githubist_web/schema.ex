@@ -13,6 +13,7 @@ defmodule GithubistWeb.Schema do
   alias GithubistWeb.Resolvers.LanguageResolver
   alias GithubistWeb.Resolvers.LocationResolver
   alias GithubistWeb.Resolvers.RepositoryResolver
+  alias GithubistWeb.Resolvers.SearchResolver
   alias GithubistWeb.Resolvers.TurkeyResolver
 
   import_types(GithubistWeb.Schema.Scalars)
@@ -22,6 +23,7 @@ defmodule GithubistWeb.Schema do
   import_types(GithubistWeb.Schema.RepositoryTypes)
   import_types(GithubistWeb.Schema.LanguageTypes)
   import_types(GithubistWeb.Schema.LocationTypes)
+  import_types(GithubistWeb.Schema.SearchTypes)
   import_types(GithubistWeb.Schema.TurkeyTypes)
 
   def context(ctx) do
@@ -40,6 +42,13 @@ defmodule GithubistWeb.Schema do
     @desc "Get the all Turkey stats"
     field :turkey, :turkey do
       resolve(&TurkeyResolver.get/3)
+    end
+
+    field :search, list_of(:search_item) do
+      @desc "Term to search"
+      arg(:query, non_null(:string))
+
+      resolve(&SearchResolver.search/3)
     end
 
     @desc "Get all locations"

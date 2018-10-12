@@ -22,6 +22,8 @@ defmodule Githubist.Developers do
           order_by: {order_direction(), order_field()}
         }
 
+  @type search_result :: %{name: String.t(), slug: String.t(), type: :developer}
+
   @doc """
   Gets a single developer.
   """
@@ -109,6 +111,34 @@ defmodule Githubist.Developers do
     query = from(r in subquery(rank_query), select: r.rank, where: r.id == ^developer.id)
 
     Repo.one(query)
+  end
+
+  @doc """
+  Search developers for given term
+  """
+  @spec search(String.t(), integer()) :: list(search_result)
+  def search(term, limit) do
+    search_term = "%#{term}%"
+
+    query =
+      from(d in Developer,
+        where: ilike(d.name, ^search_term),
+        or_where: ilike(d.username, ^search_term),
+        order_by: {:desc, d.score},
+        limit: ^limit
+      )
+
+    mapper = fn developer ->
+      %{
+        name: developer.name,
+        slug: developer.username,
+        type: :developer
+      }
+    end
+
+    query
+    |> Repo.all()
+    |> Enum.map(mapper)
   end
 
   @doc """
