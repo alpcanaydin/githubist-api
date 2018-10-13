@@ -1,0 +1,16 @@
+---
+version: '2'
+services:
+  app:
+    image: githubist:1.0.1
+    build: .
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./src:/app
+    depends_on:
+      - db
+    environment:
+      - GITHUBIST_DOCKER_DATABASE_HOST=db
+  db:
+    image: postgres:10

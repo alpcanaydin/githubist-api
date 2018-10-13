@@ -42,5 +42,5 @@ config :githubist, Githubist.Repo,
   username: "postgres",
   password: "postgres",
   database: "githubist_dev",
-  hostname: "localhost",
+  hostname: System.get_env("GITHUBIST_DOCKER_DATABASE_HOST") || "localhost",
   pool_size: 10
