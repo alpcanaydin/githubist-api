@@ -1,16 +1,32 @@
 ---
 version: '2'
+
 services:
+
   app:
-    image: githubist:1.0.1
+    image: githubist:latest
     build: .
     ports:
       - "4000:4000"
-    volumes:
-      - ./src:/app
     depends_on:
       - db
     environment:
       - GITHUBIST_DOCKER_DATABASE_HOST=db
+      - GITHUBIST_DOCKER_DATABASE_USER=githubist
+      - GITHUBIST_DOCKER_DATABASE_PASS=githubist
+      - GITHUBIST_DOCKER_DATABASE_NAME=githubist
+
   db:
-    image: postgres:10
+    image: postgres:10-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=githubist
+      - POSTGRES_DB=githubist
+      - POSTGRES_PASSWORD=githubist
+
+volumes:
+  db:
