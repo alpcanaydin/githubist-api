@@ -1,2 +1,2 @@
 #!/bin/sh
-docker build -t githubist:1.0.1 .
+docker build -t githubist:latest .

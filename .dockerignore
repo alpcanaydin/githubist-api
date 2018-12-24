@@ -6,6 +6,7 @@ db
 deps
 *.ez
 .DS_Store
+.git
 
 # Generated on crash by the VM
 erl_crash.dump
@@ -20,3 +21,9 @@ config/*.secret.exs
 
 priv/data/*
 !priv/data/.gitkeep
+
+Dockerfile
+docker-compose.yml
+.gitignore
+LICENCE
+readme.md
